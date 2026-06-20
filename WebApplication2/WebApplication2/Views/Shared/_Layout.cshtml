@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Weather Forecast</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="weather-body">
+    <nav class="navbar navbar-expand-sm navbar-dark weather-navbar">
+        <div class="container">
+            @Html.ActionLink("Weather Forecast", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <footer class="weather-footer text-center">
+            <p>Powered by <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> (free weather API)</p>
+            <p>&copy; @DateTime.Now.Year - Weather Forecast App</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

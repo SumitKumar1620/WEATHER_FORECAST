@@ -1,0 +1,98 @@
+﻿@model WebApplication2.Models.WeatherViewModel
+@{
+    ViewBag.Title = "Weather Forecast";
+}
+
+<div class="weather-app">
+    <header class="weather-header text-center">
+        <h1>🌤️ Weather Forecast</h1>
+        <p class="lead">Enter a city name to see the current weather and 7-day forecast</p>
+    </header>
+
+    <div class="search-box">
+        <form method="get" action="@Url.Action("Index", "Home")" class="search-form" id="searchForm">
+            <div class="input-group">
+                <input type="text"
+                       name="city"
+                       id="cityInput"
+                       class="form-control form-control-lg"
+                       placeholder="e.g. London, Tokyo, Mumbai..."
+                       value="@Model.SearchCity"
+                       autocomplete="off" />
+                <button type="submit" class="btn btn-primary btn-lg" id="searchBtn">
+                    Search
+                </button>
+            </div>
+        </form>
+        <button type="button" class="btn btn-outline-light btn-location" id="locationBtn">
+            📍 Use My Location
+        </button>
+    </div>
+
+    <div id="loadingMessage" class="loading-message" style="display: none;">
+        <div class="spinner-border text-light" role="status"></div>
+        <span>Loading weather...</span>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-warning weather-alert" role="alert">
+            @Model.ErrorMessage
+        </div>
+    }
+
+    @if (Model.HasWeatherData)
+    {
+        <div class="current-weather" id="weatherResults">
+            <div class="current-card">
+                <div class="current-icon">@Model.WeatherIcon</div>
+                <div class="current-details">
+                    <h2>@Model.CityName, @Model.Country</h2>
+                    <p class="temp">@Math.Round(Model.Temperature)°C</p>
+                    <p class="description">@Model.WeatherDescription</p>
+                </div>
+            </div>
+            <div class="stats-row">
+                <div class="stat-item">
+                    <span class="stat-label">Humidity</span>
+                    <span class="stat-value">@Math.Round(Model.Humidity)%</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Wind</span>
+                    <span class="stat-value">@Math.Round(Model.WindSpeed) km/h</span>
+                </div>
+            </div>
+        </div>
+
+        if (Model.DailyForecasts != null && Model.DailyForecasts.Count > 0)
+        {
+            <section class="forecast-section">
+                <h3>7-Day Forecast</h3>
+                <div class="forecast-grid">
+                    @foreach (var day in Model.DailyForecasts)
+                    {
+                        <div class="forecast-card">
+                            <p class="day-name">@day.DayName</p>
+                            <p class="day-icon">@day.Icon</p>
+                            <p class="day-desc">@day.Description</p>
+                            <p class="day-temp">
+                                <span class="max">@Math.Round(day.MaxTemp)°</span>
+                                <span class="min">@Math.Round(day.MinTemp)°</span>
+                            </p>
+                        </div>
+                    }
+                </div>
+            </section>
+        }
+    }
+    else if (string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="welcome-message text-center">
+            <p>👋 Welcome! Search for any city to get started.</p>
+        </div>
+    }
+</div>
+
+@section scripts {
+    <script src="@Url.Content("~/Scripts/weather.js")"></script>
+}

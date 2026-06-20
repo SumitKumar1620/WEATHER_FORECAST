@@ -1,0 +1,244 @@
+﻿/* Weather App Styles */
+
+.weather-body {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e8ba3 100%);
+    min-height: 100vh;
+    color: #fff;
+}
+
+.weather-navbar {
+    background: rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: blur(10px);
+}
+
+.weather-navbar .navbar-brand {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.body-content {
+    margin-top: 20px;
+    padding-bottom: 40px;
+    max-width: 900px;
+}
+
+/* Search area */
+.weather-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.weather-header .lead {
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 2rem;
+}
+
+.search-box {
+    margin-bottom: 2rem;
+}
+
+.search-form .input-group {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.search-form .form-control {
+    border: none;
+    padding: 1rem 1.25rem;
+    max-width: none;
+}
+
+.search-form .btn-primary {
+    background: #4a90d9;
+    border: none;
+    padding: 0 2rem;
+    font-weight: 600;
+}
+
+.search-form .btn-primary:hover {
+    background: #3a7bc8;
+}
+
+.btn-location {
+    margin-top: 1rem;
+    border-radius: 8px;
+    width: 100%;
+    padding: 0.6rem;
+}
+
+/* Loading */
+.loading-message {
+    text-align: center;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Alerts */
+.weather-alert {
+    border-radius: 12px;
+    border: none;
+}
+
+/* Current weather card */
+.current-weather {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.current-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.current-icon {
+    font-size: 5rem;
+    line-height: 1;
+}
+
+.current-details h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.25rem;
+}
+
+.current-details .temp {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.current-details .description {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.stats-row {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* 7-day forecast */
+.forecast-section h3 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.75rem;
+}
+
+.forecast-card {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.forecast-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.forecast-card .day-name {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.forecast-card .day-icon {
+    font-size: 2rem;
+    margin: 0.25rem 0;
+}
+
+.forecast-card .day-desc {
+    font-size: 0.75rem;
+    opacity: 0.85;
+    margin-bottom: 0.5rem;
+}
+
+.forecast-card .day-temp .max {
+    font-weight: 600;
+    margin-right: 0.5rem;
+}
+
+.forecast-card .day-temp .min {
+    opacity: 0.7;
+}
+
+/* Welcome message */
+.welcome-message {
+    padding: 3rem 1rem;
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+/* Footer */
+.weather-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.weather-footer a {
+    color: #a8d4ff;
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .weather-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .current-icon {
+        font-size: 4rem;
+    }
+
+    .current-details .temp {
+        font-size: 2.5rem;
+    }
+
+    .search-form .input-group {
+        flex-direction: column;
+    }
+
+    .search-form .btn-primary {
+        width: 100%;
+        padding: 0.75rem;
+    }
+}

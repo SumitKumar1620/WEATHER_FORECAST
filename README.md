@@ -129,8 +129,8 @@ This project is developed for educational and portfolio purposes. Weather data i
 
 **Sumit Kumar**
 
-* GitHub: https://github.com/yourusername
-* LinkedIn: https://linkedin.com/in/yourprofile
+* GitHub: https://github.com/SumitKumar1620
+* LinkedIn: www.linkedin.com/in/sumitkumarr98
 
 ## ⭐ Support
 
